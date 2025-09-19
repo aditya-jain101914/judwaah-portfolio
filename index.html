@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aditya & Abhishek — Portfolio</title>
+  <meta name="description" content="Aditya & Abhishek Jain — creators, technologists, storytellers." />
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Aditya & Abhishek — Portfolio">
+  <meta property="og:description" content="Creators • Engineers • Storytellers">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/favicon.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Intro Video Splash -->
+<div id="introVideoContainer">
+  <video id="introVideo" autoplay muted playsinline>
+    <source src="videos/intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay (hidden until video ends) -->
+  <div id="introOverlay">
+    <button id="exploreBtn">Click to Explore Judwaah</button>
+  </div>
+
+  <!-- Skip button (always visible) -->
+  <button id="skipBtn">Skip Intro</button>
+</div>
+
+  <div class="wrap" id="app">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <img src="images/logo.jpg" alt="Aditya & Abhishek logo" />
+        </div>
+        <div class="brand-text">
+          <div class="name">Aditya & Abhishek Jain</div>
+          <div class="tag">Creators • Engineers • Storytellers</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle light/dark">🌓</button>
+      </div>
+    </header>
+
+    <!-- Logo fullscreen modal -->
+    <div id="logoModal" class="logo-modal">
+      <span class="close-modal">&times;</span>
+      <img class="logo-modal-content" id="logoModalImg" alt="Full logo">
+    </div>
+
+    <main id="main-content">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-card" role="region" aria-labelledby="hero-heading">
+          <h1 class="hero-title">The Judwaah-
+            <span class="accent"> ADITYA & ABHISHEK</span><br>
+             Welcomes You!!!
+          </h1>
+          <p class="hero-subtitle">
+            Twin innovators blending <span class="highlight">technology</span>, <span class="highlight">design</span> & <span class="highlight">storytelling</span>
+          </p>
+
+          <!-- Achievements rotator: shows one achievement at a time and cycles -->
+<div class="achievements-rotator" aria-live="polite" role="status">
+  <!-- current visible item -->
+  <div class="rotator-item show" id="rotCurrent">
+    ✨ Founders of <strong class="highlight">Judwaah</strong> (1M+ views)
+  </div>
+
+  <!-- next item used for animation, kept empty initially -->
+  <div class="rotator-item" id="rotNext" aria-hidden="true"></div>
+</div>
+
+          <div class="cta">
+            <button class="btn" id="hireBtn">Work With Us</button>
+          </div>
+
+          <div class="stats">
+            <div class="photo" style="width:120px;height:120px;">
+              <img src="images/hero.jpg" alt="Aditya & Abhishek" />
+            </div>
+            <div class="stat-text">
+              <div class="stat-title">Quick Stats</div>
+              <div class="stat-line">Aditya — FE: <strong>9.5 CGPA</strong> | SE: <strong>9.9 CGPA</strong> | 12th: <strong>87.0%</strong> | 10th: <strong>90.4%</strong></div>
+              <div class="stat-line">Abhishek — FE: <strong>9.5 CGPA</strong> | SE: <strong>9.8 CGPA</strong> | 12th: <strong>91.2%</strong> | 10th: <strong>93%</strong></div>
+            </div>
+          </div>
+
+          <div class="roleline"><span id="type" aria-live="polite"></span></div>
+
+<div class="contact-mini" style="margin-top:12px;">
+  <a href="https://www.instagram.com/judwaah" 
+     class="insta-btn" 
+     target="_blank" 
+     rel="noopener noreferrer">
+    <img src="images/instagram.png" alt="Instagram" class="icon"> @judwaah
+  </a>
+</div>
+
+        </div>
+
+       <aside class="twin-card" aria-label="Team photos">
+  <!-- Aditya Card -->
+  <div class="twin-photo-block" data-member="aditya">
+    <div class="twin-photo square">
+      <img src="images/aditya.jpg" alt="Aditya Jain">
+    </div>
+    <p class="twin-name">Aditya Jain</p>
+    <p class="hint" style=text-align:center;>Click on the image to know more about Aditya</p>
+  </div>
+
+  <!-- Abhishek Card -->
+  <div class="twin-photo-block" data-member="abhishek">
+    <div class="twin-photo square">
+      <img src="images/abhishek.jpg" alt="Abhishek Jain">
+    </div>
+    <p class="twin-name">Abhishek Jain</p>
+    <p class="hint" style=text-align:center; >Click on the image to know more about Abhishek</p>
+  </div>
+</aside>
+
+<!-- Modal for twin cards -->
+<div id="twinModal" class="twin-modal">
+  <span class="close-modal">&times;</span>
+  <div class="twin-modal-content">
+    <div class="twin-modal-img">
+      <img id="twinModalImg" alt="Full profile">
+    </div>
+    <div class="twin-modal-desc">
+      <h3 id="twinModalName"></h3>
+      <p id="twinModalBio"></p>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+<!-- ABOUT -->
+<section id="about" class="section card">
+  <h2>About Us</h2>
+  <p class="muted" style="text-align:center;">
+We are Aditya & Abhishek Jain, twin innovators, final-year B.Tech students in Computer Science and Design, and the creators behind Judwaah. Beyond academics, we are also influencers on Instagram, where our creativity and unique bond inspire a growing community.
+What defines us is not only our shared passion for technology, design, and storytelling, but also the strength of being twins — together, we are our greatest strength and our biggest challenge. Our combined energy allows us to think differently, support each other in every pursuit, and achieve what often feels impossible.
+We believe that if we are together, we are unbeatable. This synergy helps us push boundaries — from building innovative digital solutions to creating engaging content that connects with people. Our journey so far has taught us leadership, resilience, adaptability, and the power of collaboration, shaping us into individuals who stand out in both professional and creative spaces.
+As twins, we don’t just work side by side; we complement each other’s skills, balance each other’s weaknesses, and amplify each other’s strengths, making us more than just a team — we are a brand, a vision, and a story in the making.  </p>
+
+  <!-- About Video -->
+  <div class="about-video">
+    <video controls poster="images/about-preview.jpg">
+      <source src="videos/about.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <h3 style="text-align:center; margin-top:25px;">
+    To know more about us individually, click on these buttons:
+  </h3>
+
+  <div class="about-buttons" style="text-align:center; margin-top:20px;">
+    <button class="btn" id="btnAditya">Aditya</button>
+    <button class="btn" id="btnAbhishek">Abhishek</button>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section card">
+  <h2>Tech-Projects</h2>
+  <div class="projects" aria-live="polite">
+
+    <!-- AI Chatbot -->
+    <article class="project" tabindex="0" data-project="chatbot">
+      <div class="thumb">Chatbot</div>
+      <div>
+        <h4>AI Chatbot — PGRKAM (SIH)</h4>
+      </div>
+    </article>
+
+    <!-- Games -->
+    <article class="project" tabindex="0" data-project="games">
+      <div class="thumb">Games</div>
+      <div>
+        <h4>Water Conservation Games</h4>
+      </div>
+    </article>
+
+    <!-- Gesture -->
+    <article class="project" tabindex="0" data-project="gesture">
+      <div class="thumb">Gesture</div>
+      <div>
+        <h4>Brightness Gesture Control</h4>
+      </div>
+    </article>
+
+    <!-- Beatboxify -->
+    <article class="project" tabindex="0" data-project="beatboxify">
+      <div class="thumb">Beatboxify</div>
+      <div>
+        <h4>Beatboxify — Music App</h4>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Project Modal -->
+<div id="projectModal" class="project-modal">
+  <div class="project-modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="project-modal-img">
+      <img src="" alt="Project image" id="projectModalImg">
+    </div>
+    <div class="project-modal-desc">
+      <h3 id="projectModalTitle"></h3>
+      <p id="projectModalText"></p>
+    </div>
+  </div>
+</div>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section grid-2">
+        <div class="card">
+          <h3>Technical Skills</h3>
+          <p style=text-align:center;>We are still working on our skills</p>
+          <div class="skill">
+            <label>Python <span class="percent">80%</span></label>
+            <div class="bar"><div class="fill" data-fill="80%"></div></div>
+          </div>
+          <div class="skill">
+            <label>HTML / CSS <span class="percent">85%</span></label>
+            <div class="bar"><div class="fill" data-fill="85%"></div></div>
+          </div>
+          <div class="skill">
+            <label>JavaScript <span class="percent">50%</span></label>
+            <div class="bar"><div class="fill" data-fill="50%"></div></div>
+          </div>
+          <div class="skill">
+            <label>C / C++ <span class="percent">70%</span></label>
+            <div class="bar"><div class="fill" data-fill="70%"></div></div>
+          </div>
+          <div class="skill">
+            <label>MySQL <span class="percent">60%</span></label>
+            <div class="bar"><div class="fill" data-fill="60%"></div></div>
+          </div>
+          <div class="skill">
+            <label>Design & Editing <span class="percent">92%</span></label>
+            <div class="bar"><div class="fill" data-fill="92%"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+ <div class="card">
+<div class="card">
+  <h3>Strengths & Weaknesses</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Aditya</th>
+        <th>Abhishek</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Strengths</td>
+        <td>Dedication • Patience • Politeness • Strong family values</td>
+        <td>Confidence • Analytical skills • Good listener • Strong family values</td>
+      </tr>
+      <tr>
+        <td>Weaknesses</td>
+        <td>Overthinking • Takes on too many tasks • Perfectionist tendencies</td>
+        <td>Overthinking • Sensitive at times • Balancing creativity with execution</td>
+      </tr>
+      <tr>
+        <td>Skills</td>
+        <td>Leadership • Quick Learning • Problem-solving • Creativity • Teamwork • Communication</td>
+        <td>Leadership • Critical Thinking • Adaptability • Creativity • Teamwork • Communication</td>
+      </tr>
+      <tr>
+        <td>Hobbies</td>
+        <td>Dancing • Singing • Drawing • Content Creating • Travelling</td>
+        <td>Dancing • Singing • Drawing • Content Creating • Travelling</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+      <!-- CONTACT -->
+<section id="contact" class="section card">
+  <h2>Contact Us</h2>
+  <p class="muted">For collaborations, sponsorships or projects — write to us:</p>
+
+  <div class="contact-block">
+    <a href="mailto:youremail@example.com?subject=Project%20Inquiry%20-%20Aditya%20%26%20Abhishek" class="btn">
+      <i class="fas fa-envelope"></i> Email Us
+    </a>
+
+    <a href="https://www.linkedin.com/in/abhishekjain22032004" target="_blank" class="btn">
+      <i class="fab fa-linkedin"></i> LinkedIn - Abhishek
+    </a>
+
+    <a href="https://www.linkedin.com/in/adityajain22032004" target="_blank" class="btn">
+      <i class="fab fa-linkedin"></i> LinkedIn - Aditya
+    </a>
+
+    <a href="https://www.instagram.com/judwaah" target="_blank" class="btn">
+      <i class="fab fa-instagram"></i> @judwaah
+    </a>
+  </div>
+
+  <!-- Contact Form -->
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkgvdgpy" method="POST">
+    <input name="name" placeholder="Your name" required>
+    <input name="email" placeholder="Email" required type="email">
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button class="btn" type="submit">Send message</button>
+  </form>
+</section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="section card">
+        <h2>Our Gallery</h2>
+        <div class="carousel" aria-roledescription="carousel">
+          <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide"><img src="images/pic1.jpg" alt="Event photo 1"></li>
+              <li class="carousel-slide"><img src="images/pic2.jpg" alt="Event photo 2"></li>
+              <li class="carousel-slide"><img src="images/pic3.jpg" alt="Event photo 3"></li>
+              <li class="carousel-slide"><img src="images/pic4.jpg" alt="Event photo 4"></li>
+              <li class="carousel-slide"><img src="images/pic5.jpg" alt="Event photo 5"></li>
+            </ul>
+          </div>
+          <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>© Aditya & Abhishek Jain — Built with ❤️</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
