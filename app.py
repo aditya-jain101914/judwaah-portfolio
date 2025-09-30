@@ -18,9 +18,9 @@ def contact():
         return jsonify({'error': 'All fields are required'}), 400
 
     # Email configuration
-    sender_email = 'csadityajain31@gmail.com'
-    sender_password = 'wfsj uqgv cfsi xtoi'
-    receiver_email = 'csadityajain31@gmail.com'
+    sender_email = os.environ.get('EMAIL_USER', 'csadityajain31@gmail.com')
+    sender_password = os.environ.get('EMAIL_PASS', 'wfsj uqgv cfsi xtoi')
+    receiver_email = os.environ.get('RECEIVER_EMAIL', 'csadityajain31@gmail.com')
 
     # Create the email
     msg = MIMEMultipart()
@@ -44,4 +44,5 @@ def contact():
         return jsonify({'error': f'Failed to send email: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
