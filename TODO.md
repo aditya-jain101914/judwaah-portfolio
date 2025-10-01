@@ -1,25 +1,16 @@
-# TODO: Test Deployed Flask Portfolio Site on Render.com
+# TODO: Replace Formspree with Python Flask Backend for Contact Form
 
-## Critical Testing Areas
+## Steps Completed
 
-- Verify the deployed Flask backend is running and accessible at https://judwaah-portfolio.onrender.com
-- Test the contact form submission on the deployed site:
-  - Fill out the form and submit.
-  - Confirm the form shows success message.
-  - Verify email delivery to the configured receiver email.
-- Check the frontend site loads correctly and all interactive elements work:
-  - Navigation links
-  - Modals and carousels
-  - Theme toggle
-  - Intro video splash
-- Test on multiple browsers and devices if possible.
+- [x] Create app.py with Flask backend for handling contact form submissions and sending emails via SMTP.
+- [x] Create requirements.txt with Flask and Flask-CORS dependencies.
+- [x] Update index.html to change the contact form action to http://localhost:5000/contact (update to deployed URL for global hosting).
+- [x] Update script.js to handle form submission asynchronously using fetch instead of the current demo alert.
 
-## Testing Options
+## Remaining Steps
 
-- Critical-path testing: Test only the key elements above.
-- Thorough testing: Test all pages, sections, and interactive components.
-
-## Next Steps
-
-- Please confirm if you want me to assist with critical-path testing or thorough testing.
-- If you prefer, you can test yourself and report any issues for me to help fix.
+- [x] Set up email credentials securely (provided by user, hardcoded in app.py for local testing; use environment variables for deployment).
+- [x] Test the form locally by running the Flask app (installed deps, ran app, tested endpoint with curl - success response, email sent).
+- [ ] Deploy the Flask app to a global hosting platform (e.g., Heroku, Render) for worldwide access (set EMAIL_USER, EMAIL_PASS, RECEIVER_EMAIL as env vars).
+- [ ] Update the form action in index.html and fetch URL in script.js to the deployed endpoint.
+- [ ] Verify email delivery and form functionality after deployment.

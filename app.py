@@ -4,25 +4,9 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
-import logging
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for cross-origin requests if needed
-
-@app.route('/')
-def home():
-    return jsonify({'message': 'API is running'})
-
-@app.route('/routes')
-def list_routes():
-    routes = []
-    for rule in app.url_map.iter_rules():
-        routes.append({
-            'endpoint': rule.endpoint,
-            'methods': list(rule.methods),
-            'path': str(rule)
-        })
-    return jsonify({'routes': routes})
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -60,5 +44,4 @@ def contact():
         return jsonify({'error': f'Failed to send email: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(debug=True)
