@@ -24,7 +24,7 @@ def contact():
 
     # Create the email
     msg = MIMEMultipart()
-    msg['From'] = sender_email
+    msg['From'] = email  # Use the user's email as sender
     msg['To'] = receiver_email
     msg['Subject'] = f'Contact Form Submission from {name}'
 
