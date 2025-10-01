@@ -11,6 +11,6 @@
 
 - [x] Set up email credentials securely (provided by user, hardcoded in app.py for local testing; use environment variables for deployment).
 - [x] Test the form locally by running the Flask app (installed deps, ran app, tested endpoint with curl - success response, email sent).
-- [ ] Deploy the Flask app to a global hosting platform (e.g., Heroku, Render) for worldwide access (set EMAIL_USER, EMAIL_PASS, RECEIVER_EMAIL as env vars).
-- [ ] Update the form action in index.html and fetch URL in script.js to the deployed endpoint.
-- [ ] Verify email delivery and form functionality after deployment.
+- [x] Deploy the Flask app to a global hosting platform (Railway) for worldwide access (set EMAIL_USER, EMAIL_PASS, RECEIVER_EMAIL as env vars).
+- [x] Update the form action in index.html and fetch URL in script.js to the deployed endpoint.
+- [x] Verify email delivery and form functionality after deployment.
