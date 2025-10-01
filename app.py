@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import os
 
 app = Flask(__name__)
@@ -17,28 +18,28 @@ def contact():
         return jsonify({'error': 'All fields are required'}), 400
 
     # Email configuration
-    sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
     sender_email = os.environ.get('EMAIL_USER', 'csadityajain31@gmail.com')
+    sender_password = os.environ.get('EMAIL_PASS', 'wfsj uqgv cfsi xtoi')
     receiver_email = os.environ.get('RECEIVER_EMAIL', 'csadityajain31@gmail.com')
 
-    if not sendgrid_api_key:
-        return jsonify({'error': 'Email service not configured'}), 500
-
     # Create the email
-    message = Mail(
-        from_email=sender_email,
-        to_emails=receiver_email,
-        subject=f'Contact Form Submission from {name}',
-        html_content=f'<p><strong>Name:</strong> {name}</p><p><strong>Email:</strong> {email}</p><p><strong>Message:</strong></p><p>{message}</p>'
-    )
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = f'Contact Form Submission from {name}'
+
+    body = f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}'
+    msg.attach(MIMEText(body, 'plain'))
 
     try:
-        sg = SendGridAPIClient(sendgrid_api_key)
-        response = sg.send(message)
-        if response.status_code == 202:
-            return jsonify({'success': 'Message sent successfully'})
-        else:
-            return jsonify({'error': f'Failed to send email: {response.status_code}'}), 500
+        # Send the email
+        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        text = msg.as_string()
+        server.sendmail(sender_email, receiver_email, text)
+        server.quit()
+        return jsonify({'success': 'Message sent successfully'})
     except Exception as e:
         return jsonify({'error': f'Failed to send email: {str(e)}'}), 500
 
